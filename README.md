@@ -8,4 +8,4 @@ Creation of a “Hugo” theme for town halls. This theme, once integrated into 
 - Have a contact page
 
 Launch a server using the following command (you must be at the root of the project) :
-*hugo server -D*
+`hugo server -D`
