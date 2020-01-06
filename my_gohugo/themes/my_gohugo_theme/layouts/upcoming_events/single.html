@@ -1,0 +1,31 @@
+<!-- Inclusion de la "head" ( ouverture du tag body , ...) -->
+{{ partial "head.html" . }}
+
+<body>
+    <!-- Inclusion du " header " (navbar , ...) -->
+    {{ partial "header.html" . }}
+
+    <!-- Inclusion Aside -->
+    {{ partial "aside.html" . }}
+
+    <!-- Le " Contenu " de votre page -->
+
+    <div id="container_events">
+        <h2>{{ .Title }}</h2>
+        <p class="adresse">
+            {{ .Param "adress" }} {{ .Param "postalCode" }} {{ .Param "city" }}
+            {{ .Param "label" }}
+        </p>
+        <p class="date">{{ .Param "when" }}</p>
+        <br /><br />
+        <div class="change_ratio">
+            <img id="event_img" src="{{.Params.photos }}" display: block; margin-left: auto; margin-right: auto;
+                alt="{{ .Title }}">
+        </div>
+        {{ .Content }} <br /><br />
+        {{ .Param "association" }}
+    </div>
+
+    <!-- Inclusion du " footer " ( fermeture du tag body , ...) -->
+    {{ partial "footer.html" . }}
+</body>

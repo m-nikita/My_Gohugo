@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <!-- Inclusion de la "head" ( ouverture du tag body , ...) -->
+    {{ partial "head.html" . }}
+</head>
+
+<body>
+    <!-- Inclusion du " header " (navbar , ...) -->
+    {{ partial "header.html" . }}
+
+    <!-- Inclusion Aside -->
+    {{ partial "aside.html" . }}
+
+    <!-- Le " Contenu " de votre page -->
+
+    <div class="flex-container">
+        <!-- $t = Page events -->
+        {{ $t := .Site.GetPage "/events" }}
+        <!-- Afficher 10 premiers events par rapport au paramètre "when" -->
+        {{ range ($t.Pages.ByParam "when").Reverse }}
+
+        <div class="container_list_event">
+            <a style="margin: 0 0 15px 15px;" href="{{ .Permalink }}">{{ .Title }}</a>
+            <p class="date">{{ .Param "when" }}</p>
+            <br />
+            <p class="label">{{ .Param "label" }}</p>
+            <div class="list_event_img">
+                <a href="{{ .Permalink }}"><img id="event_img" src="{{.Params.photos }}" display: block; margin-left:
+                        auto; margin-right: auto; alt="{{ .Title }}"></a>
+            </div>
+        </div>
+
+        {{ end }}
+        <!-- Fin range -->
+    </div>
+
+    <!-- Inclusion du " footer " ( fermeture du tag body , ...) -->
+    {{ partial "footer.html" . }}
+</body>
+
+</html>

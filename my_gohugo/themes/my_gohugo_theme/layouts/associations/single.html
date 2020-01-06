@@ -1,0 +1,23 @@
+<!-- Inclusion de la "head" ( ouverture du tag body , ...) -->
+{{ partial "head.html" . }}
+
+<body>
+    <!-- Inclusion du " header " (navbar , ...) -->
+    {{ partial "header.html" . }}
+
+    <!-- Inclusion Aside -->
+    {{ partial "aside.html" . }}
+
+    <!-- Le " Contenu " de votre page -->
+
+    <div id="container_associations">
+        <h2>{{ .Title }}</h2>
+        <p class="domain">{{ .Param "domain" }}</p>
+        <p class="address">{{ .Param "address" }}</p>
+        <br />
+        <p class="content">{{ .Content }}</p>
+    </div>
+
+    <!-- Inclusion du " footer " ( fermeture du tag body , ...) -->
+    {{ partial "footer.html" . }}
+</body>

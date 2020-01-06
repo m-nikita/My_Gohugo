@@ -1,0 +1,28 @@
+<!--Aside Menu-->
+
+<aside class="aside_menu">
+    <ul class="liste_01">
+        <li>
+            <!-- Search form -->
+            <form class="form-inline">
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search" />
+            </form>
+        </li>
+        <br />
+        <li>
+            <!-- Variable -->
+            {{ $t := .Site.GetPage "/associations" }}
+            <!-- Effectue une boucle -->
+            {{ range $t.Pages.ByTitle }}
+
+            <div class="">
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </div>
+
+            {{ end }}
+            <!-- Fin range -->
+        </li>
+    </ul>
+</aside>
+
+<!-- {{ with .Site.GetPage "/events" }}{{ .Title }}{{ end }} -->

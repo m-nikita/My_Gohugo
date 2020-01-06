@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Inclusion de la "head" ( ouverture du tag body , ...) -->
+    {{ partial "head.html" . }}
+</head>
+
+<body>
+    <!-- Inclusion du " header " (navbar , ...) -->
+    {{ partial "header.html" . }}
+    <!-- Début Carousel -->
+    <div class="container_carousel">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" id="carousel_01">
+                    <div class="d-block w-100">
+                        <div class="row">
+                            <div class="col" id="carousel_left">
+                                IMG_01
+                            </div>
+                            <div class="col" id="carousel_right">
+                                <h2>Titre_01</h2>
+                                <br />
+                                <p>
+                                    Nec vox accusatoris ulla licet subditicii in his malorum
+                                    quaerebatur acervis ut saltem specie tenus crimina
+                                    praescriptis legum committerentur, quod aliquotiens fecere
+                                    principes saevi: sed quicquid Caesaris implacabilitati
+                                    sedisset, id velut fas iusque perpensum confestim urgebatur
+                                    impleri.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item" id="carousel_02">
+                    <div class="d-block w-100">
+                        <div class="row">
+                            <div class="col" id="carousel_left">
+                                IMG_02
+                            </div>
+                            <div class="col" id="carousel_right">
+                                <h2>Titre_02</h2>
+                                <br />
+                                <p>
+                                    Nec vox accusatoris ulla licet subditicii in his malorum
+                                    quaerebatur acervis ut saltem specie tenus crimina
+                                    praescriptis legum committerentur, quod aliquotiens fecere
+                                    principes saevi: sed quicquid Caesaris implacabilitati
+                                    sedisset, id velut fas iusque perpensum confestim urgebatur
+                                    impleri.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item" id="carousel_03">
+                    <div class="d-block w-100">
+                        <div class="row">
+                            <div class="col" id="carousel_left">
+                                IMG_03
+                            </div>
+                            <div class="col" id="carousel_right">
+                                <h2>Titre_03</h2>
+                                <br />
+                                <p>
+                                    Nec vox accusatoris ulla licet subditicii in his malorum
+                                    quaerebatur acervis ut saltem specie tenus crimina
+                                    praescriptis legum committerentur, quod aliquotiens fecere
+                                    principes saevi: sed quicquid Caesaris implacabilitati
+                                    sedisset, id velut fas iusque perpensum confestim urgebatur
+                                    impleri.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Fin Carousel -->
+
+    <!-- Inclusion Aside -->
+    {{ partial "aside.html" . }}
+
+    <!-- Le " Contenu " de votre page -->
+
+    <div class="flex-container">
+        <!-- $t = Page events -->
+        {{ $t := .Site.GetPage "/events" }}
+        <!-- Effectue une boucle -->
+        {{ range first 10 ($t.Pages.ByParam "when") }}
+
+        <div class="container_list_event">
+            <a style="margin: 0 0 15px 15px;" href="{{ .Permalink }}">{{ .Title }}</a>
+            <p class="date">{{ .Param "when" }}</p>
+            <br />
+            <p class="label">{{ .Param "label" }}</p>
+
+            <div class="list_event_img">
+                <a href="{{ .Permalink }}"><img id="event_img" src="{{.Params.photos }}" display: block; margin-left:
+                        auto; margin-right: auto; alt="{{ .Title }}"></a>
+            </div>
+        </div>
+
+        {{ end }}
+        <!-- Fin range -->
+    </div>
+
+    <!-- Inclusion du " footer " ( fermeture du tag body , ...) -->
+    {{ partial "footer.html" . }}
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Inclusion de la "head" ( ouverture du tag body , ...) -->
+    {{ partial "head.html" . }}
+</head>
+
+<body>
+    <!-- Inclusion du " header " (navbar , ...) -->
+    {{ partial "header.html" . }}
+
+    <!-- Le " Contenu " de votre page -->
+
+    <div class="container_calendar">
+        <iframe
+            src="https://calendar.google.com/calendar/embed?height=500&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=Europe%2FParis&amp;src=bDZncGtkanJ1M3ZidGJpYzZtZGQ4MDlpYm9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=ZnIuZnJlbmNoI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%237CB342&amp;color=%237986CB&amp;showTitle=0&amp;showNav=1&amp;showTz=0&amp;showCalendars=0&amp;showDate=1&amp;showPrint=0&amp;showTabs=1&amp;mode=MONTH"
+            style="border-width:0" width="100%" height="500" frameborder="0" scrolling="no"></iframe>
+    </div>
+
+    <!-- Inclusion du " footer " ( fermeture du tag body , ...) -->
+    {{ partial "footer.html" . }}
+</body>
+
+</html>

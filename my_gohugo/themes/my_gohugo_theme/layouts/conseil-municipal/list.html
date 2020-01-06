@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Inclusion de la "head" ( ouverture du tag body , ...) -->
+    {{ partial "head.html" . }}
+</head>
+
+<body>
+    <!-- Inclusion du " header " (navbar , ...) -->
+    {{ partial "header.html" . }}
+
+    <!-- Le " Contenu " de votre page -->
+
+    <div class="container_organigramme">
+        <!-- Cabinet + Maire + Police Municipale -->
+        <div class="row" id="organigramme_level_01">
+            <!-- Cabinet -->
+
+            {{ range where .Site.Pages "Params.tag" "cabinet" }}
+            <div class="col mx-1" id="organigramme_cabinet">
+                <div id="organigramme_img_cropper">
+                    <div>
+                        <img src="{{.Params.photo }}" alt="{{ .Title }}" id="organigramme_img" />
+                    </div>
+                </div>
+                <div class="organigramme_texte_centre">
+                    <div class="organigramme_firstName_lastName">
+                        <p id="firstName_lastName">
+                            {{ .Param "firstName" }}
+                            <span style="text-transform: uppercase" ;>{{ .Param "lastName" }}</span>
+                        </p>
+                    </div>
+                    <p style="text-transform: uppercase" class="organigramme_role">
+                        {{ .Param "role" }}
+                    </p>
+                </div>
+            </div>
+            {{ end }}
+
+            <!-- Maire -->
+
+            {{ range where .Site.Pages "Params.tag" "maire" }}
+            <div class="col mx-1" id="organigramme_maire">
+                <div id="organigramme_img_cropper">
+                    <div>
+                        <img src="{{.Params.photo }}" alt="{{ .Title }}" id="organigramme_img" />
+                    </div>
+                </div>
+                <div class="organigramme_texte_centre">
+                    <div class="organigramme_firstName_lastName">
+                        <p id="firstName_lastName">
+                            {{ .Param "firstName" }}
+                            <span style="text-transform: uppercase" ;>{{ .Param "lastName" }}</span>
+                        </p>
+                    </div>
+                    <p style="text-transform: uppercase" class="organigramme_role">
+                        {{ .Param "role" }}
+                    </p>
+                </div>
+            </div>
+            {{ end }}
+
+            <!-- Police Municipale -->
+
+            {{ range where .Site.Pages "Params.tag" "police municipale" }}
+            <div class="col mx-1" id="organigramme_police">
+                <div id="organigramme_img_cropper">
+                    <div>
+                        <img src="{{.Params.photo }}" alt="{{ .Title }}" id="organigramme_img" />
+                    </div>
+                </div>
+                <div class="organigramme_texte_centre">
+                    <div class="organigramme_firstName_lastName">
+                        <p id="firstName_lastName">
+                            {{ .Param "firstName" }}
+                            <span style="text-transform: uppercase" ;>{{ .Param "lastName" }}</span>
+                        </p>
+                    </div>
+                    <p style="text-transform: uppercase" class="organigramme_role">
+                        {{ .Param "role" }}
+                    </p>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+
+        <!-- Flèche -->
+
+        <div class="row" id="organigramme_level_fleche">
+            <div class="col mx-1" id="organigramme_fleche">
+                ▼
+            </div>
+        </div>
+
+        <!-- Directeur Général -->
+        {{ range where .Site.Pages "Params.tag" "directeur general" }}
+        <div class="row" id="organigramme_level_02">
+            <div class="col mx-1" id="organigramme_dg">
+                <div id="organigramme_img_cropper">
+                    <div>
+                        <img src="{{.Params.photo }}" alt="{{ .Title }}" id="organigramme_img" />
+                    </div>
+                </div>
+                <div class="organigramme_texte_centre">
+                    <div class="organigramme_firstName_lastName">
+                        <p id="firstName_lastName">
+                            {{ .Param "firstName" }}
+                            <span style="text-transform: uppercase" ;>{{ .Param "lastName" }}</span>
+                        </p>
+                    </div>
+                    <p style="text-transform: uppercase" class="organigramme_role">
+                        {{ .Param "role" }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {{ end }}
+
+        <!-- Flèche -->
+
+        <div class="row" id="organigramme_level_fleche">
+            <div class="col mx-1" id="organigramme_fleche">
+                ▼
+            </div>
+        </div>
+
+        <!-- Députés -->
+        <div class="row" id="organigramme_level_03">
+            <!-- Député -->
+
+            {{ range where .Site.Pages "Params.tag" "depute" }}
+            <div class="col mx-1" id="organigramme_depute">
+                <div id="organigramme_img_cropper">
+                    <div>
+                        <img src="{{.Params.photo }}" alt="{{ .Title }}" id="organigramme_img" />
+                    </div>
+                </div>
+                <div class="organigramme_texte_centre">
+                    <div class="organigramme_firstName_lastName">
+                        <p id="firstName_lastName">
+                            {{ .Param "firstName" }}
+                            <span style="text-transform: uppercase" ;>{{ .Param "lastName" }}</span>
+                        </p>
+                    </div>
+                    <p style="text-transform: uppercase" class="organigramme_role">
+                        {{ .Param "role" }}
+                    </p>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+
+    <!-- Présentation -->
+
+    {{ partial "presentation.html" . }}
+
+    <!-- Inclusion du " footer " ( fermeture du tag body , ...) -->
+    {{ partial "footer.html" . }}
+</body>
+
+</html>
